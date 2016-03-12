@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+	head
+		title LeWebFrancais - Se connecter
+
+		// STYLES
+		link(rel="stylesheet", href="/styles/classes.css")
+		link(rel="stylesheet", href="/styles/importer.css")
+		link(rel="stylesheet", href="/styles/login.css")
+		link(rel="stylesheet", href="/styles/main.css")
+		// STYLES END
+		link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Montserrat:400,700')
+	body
+		#logoid.logo.col-md-2.col-md-offset-5.col-xs-10.col-xs-offset-1
+		#login.login-block.col-md-2.col-md-offset-5.col-xs-10.col-xs-offset-1
+			p Votre compte n'a pu être créé.
+			form(action='/espace-admin/register',method='GET')
+				input(type='submit',value='Essayer à nouveau',data-transition='fade', data-theme='c')

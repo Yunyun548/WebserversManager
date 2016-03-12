@@ -1,0 +1,61 @@
+div(class='left-col col-md-2')
+	.left_col.scroll-view
+		.navbar.nav_title(style='border: 0;')
+			a.site_title(href='/espace-admin/dashboard')
+				i.fa.fa-home
+				|  
+				span Bienvenue !
+		|                     
+		.clearfix
+		br
+		// sidebar menu
+		#sidebar-menu.main_menu_side.hidden-print.main_menu
+			.menu_section
+				h3 General
+				|                             
+				ul.nav.side-menu
+					li
+						a(href='/espace-admin/dashboard')
+							i.fa.fa-home
+							|  Home 
+					|                                 
+					li
+						a
+							i.fa.fa-edit
+							|  Évènements
+							span.fa.fa-chevron-down
+						|                                     
+						ul.nav.child_menu(style='display: none')
+							li
+								a(href='/espace-admin/occasion/view?currentPage=1') Liste
+							|                                         
+							li
+								a(href='/espace-admin/occasion/create') Créer
+					|                                 
+					li
+						a
+							i.fa.fa-shopping-cart
+							|  Commandes
+							span.fa.fa-chevron-down
+						|                                     
+						ul.nav.child_menu(style='display: none')
+							li
+								a(href='/espace-admin/command/view?currentPage=1') Liste
+							|                                         
+							li
+								a(href='/espace-admin/command/create') Créer
+					|                                 
+					li
+						a
+							i.fa.fa-tag
+							|  Produits 
+							span.fa.fa-chevron-down
+						|                                     
+						ul.nav.child_menu(style='display: none')
+							li
+								a(href='/espace-admin/product/view?currentPage=1') Liste
+							|                                         
+							li
+								a(href='/espace-admin/product/create') Créer
+					|                                 
+		// /sidebar menu
