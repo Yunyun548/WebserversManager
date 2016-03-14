@@ -111,7 +111,8 @@ module.exports = {
             });
             else {
                 return res.view('Manager/Contract/single-view', {
-                    contract: result
+                    contract: result,
+                    moment: moment
                 });
             }
         });

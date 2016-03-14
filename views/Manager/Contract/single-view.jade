@@ -21,12 +21,12 @@ html(lang='fr')
 							h4.col-md-3(style="text-align:right;") Nom
 							h4.col-md-8.ml25 #{contract.name}
 							h4.col-md-3(style="text-align:right;") Machine
-							h4.col-md-8.ml25 #{contract.machine} lalalalala
+							h4.col-md-8.ml25 #{contract.machine}
 							h4.col-md-3(style="text-align:right;") Prix mensuel
 							h4.col-md-8.ml25 #{contract.monthlyPrice} €
 							h4.col-md-3(style="text-align:right;") Date de début
-							h4.col-md-8.ml25 #{contract.dateStart} 
+							h4.col-md-8.ml25 #{moment(contract.dateStart).format("DD-MM-YYYY")}
 							h4.col-md-3(style="text-align:right;") Date de fin
-							h4.col-md-8.ml25 #{contract.dateEnd}
+							h4.col-md-8.ml25 #{moment(contract.dateEnd).format("DD-MM-YYYY")}
 
 	include ../layout_components/footer.jade
