@@ -26,7 +26,27 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+    '*': true,
+	ContractController:
+	{
+		'*': ['sessionAuth'],
+		'login': true,
+		'register': true,
+		'successRegister' : true,
+	},
+    MachineController:
+	{
+		'*': ['sessionAuth'],
+	},
+    GeneralController:
+	{
+		'*': ['sessionAuth'],
+        'login': true,
+        'register': false,
+        'success': true,
+        'error': true
+	},
+
 
   /***************************************************************************
   *                                                                          *

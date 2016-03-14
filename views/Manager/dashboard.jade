@@ -113,8 +113,8 @@ html(lang='fr')
 													#{contract.name}
 												td. 
 													#{contract.monthlyPrice} €
-												td. 
-													#{moment(contract.dateEnd).format("DD-MM-YYYY")}
+												td
+													<p class="label label-danger" style="font-size:100%;">#{moment(contract.dateEnd).format("DD-MM-YYYY")}</p>
 												td. 
 													<a href="/dashboard/contracts/view?id=#{contract.id}">Voir</a>
 									|      

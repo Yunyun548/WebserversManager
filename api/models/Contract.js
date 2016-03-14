@@ -16,7 +16,8 @@ module.exports = {
         	model : 'machine'
         },
         monthlyPrice: {
-            type: 'float'
+            type: 'string',
+            required: true
         },
         dateStart:
 		{

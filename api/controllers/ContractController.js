@@ -31,7 +31,6 @@ module.exports = {
         if (!_name || !_monthlyPrice || !_dateS || !_dateE) return res.json(501, {
             err: "Bad parameters - Required : 'name' - string, 'monthlyPrice' - float, 'datetime' - dateStart, 'datetime' - dateEnd"
         })
-        console.log(req.session.user)
         Contract.create({
             name: _name,
             machine: _machineId,
@@ -78,7 +77,7 @@ module.exports = {
 
         Contract.find().paginate({
             page: _currentPage,
-            limit: 2
+            limit: 20
         }).exec(function(err, results) {
             if (err) {
                 console.log('/!\ Error : ' + err);
