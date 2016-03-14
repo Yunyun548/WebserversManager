@@ -15,47 +15,34 @@ div(class='left-col col-md-2')
 				|                             
 				ul.nav.side-menu
 					li
-						a(href='/espace-admin/dashboard')
+						a(href='/dashboard')
 							i.fa.fa-home
-							|  Home 
+							|  Accueil 
 					|                                 
 					li
 						a
 							i.fa.fa-edit
-							|  Évènements
+							|  Contrats
 							span.fa.fa-chevron-down
 						|                                     
 						ul.nav.child_menu(style='display: none')
 							li
-								a(href='/espace-admin/occasion/view?currentPage=1') Liste
+								a(href='/dashboard/contracts/list?currentPage=1') Liste
 							|                                         
 							li
-								a(href='/espace-admin/occasion/create') Créer
+								a(href='/dashboard/contracts/create') Créer
 					|                                 
 					li
 						a
 							i.fa.fa-shopping-cart
-							|  Commandes
+							|  Machines
 							span.fa.fa-chevron-down
 						|                                     
 						ul.nav.child_menu(style='display: none')
 							li
-								a(href='/espace-admin/command/view?currentPage=1') Liste
+								a(href='/dashboard/machines/list?currentPage=1') Liste
 							|                                         
 							li
-								a(href='/espace-admin/command/create') Créer
-					|                                 
-					li
-						a
-							i.fa.fa-tag
-							|  Produits 
-							span.fa.fa-chevron-down
-						|                                     
-						ul.nav.child_menu(style='display: none')
-							li
-								a(href='/espace-admin/product/view?currentPage=1') Liste
-							|                                         
-							li
-								a(href='/espace-admin/product/create') Créer
+								a(href='/dashboard/machines/create') Créer
 					|                                 
 		// /sidebar menu

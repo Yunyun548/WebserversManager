@@ -13,19 +13,19 @@ html(lang='fr')
 							i.fa.fa-user
 							|  Utilisateurs
 						|                             
-						.count #{totalUsers}
+						.count.tcenter #{totalUsers}
 				|                     
 				|                             
-				.animated.flipInY.col-xs-3.tile_stats_count
+				.animated.flipInY.col-md-2.col-sm-4.col-xs-4.tile_stats_count
 					.left
 					|                         
 					.right
 						span.count_top
 							i.fa.fa-edit
 							|  Machines
-						.count #{totalMachines}
+						.count.tcenter #{totalMachines}
 				|                     
-				.animated.flipInY.col-xs-3.tile_stats_count
+				.animated.flipInY.col-md-2.col-sm-4.col-xs-4.tile_stats_count
 					.left
 					|                         
 					.right
@@ -33,20 +33,46 @@ html(lang='fr')
 							i.fa.fa-shopping-cart
 							|  Contrats
 						|                             
-						.count.green #{totalContracts}
-				|                     
-				//- .animated.flipInY.col-xs-3.tile_stats_count
-				//- 	.left
-				//- 	|                         
-				//- 	.right
-				//- 		span.count_top
-				//- 			i.fa.fa-tag
-				//- 			|  Produits
-				//- 		|                             
-				//- 		.count #{totalProducts}
-				//- |                     
-				// /top tiles                 
-				.row               
+						.count.green.tcenter #{totalContracts}
+				|                                  
+				.row.col-md-12                              
+					.col-md-6.col-xs-12
+						.x_panel
+							.x_title
+								h2 Machines 
+								|                                     
+								ul.nav.navbar-right.panel_toolbox
+									li
+										a.collapse-link
+											i.fa.fa-chevron-up
+									|                                                                               
+									li
+										a.close-link
+											i.fa.fa-close
+								|                                     
+								.clearfix
+							|                                 
+							.x_content
+								table(style='width:100%')
+									thead
+										tr.headings
+											th.column-title.col-xs-2.ph0 Id 
+											th.column-title.col-xs-4.ph0 Nom
+											th.column-title.col-xs-3.ph0 Actions 
+											th.column-title.col-xs-3.ph0 
+										tr.even(style='height: 10px;')
+									tbody
+										each machine in listMachines
+											tr.even.pointer
+												td. 
+													#{machine.name}
+												td. 
+													#{machine.dns}
+												td.
+													<a href="/dashboard/machines/view?id=#{machine.id}">Voir</a>
+												td. 
+													<a href="/dashboard/machines/edit?id=#{machine.id}">Editer</a>
+										|      
 					.col-md-6.col-xs-12
 						.x_panel.tile
 							.x_title
@@ -83,38 +109,7 @@ html(lang='fr')
 													#{contract.formatedDateStart}
 												td. 
 													#{contract.formatedDateEnd}
-					|                     
-					.col-md-6.col-xs-12
-						.x_panel
-							.x_title
-								h2
-									| Bar graph 
-									small Sessions
-								|                                     
-								ul.nav.navbar-right.panel_toolbox
-									li
-										a.collapse-link
-											i.fa.fa-chevron-up
-									|                                         
-									li.dropdown
-										a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-											i.fa.fa-wrench
-										|                                             
-										ul.dropdown-menu(role='menu')
-											li
-												a(href='#') Settings 1
-											|                                                 
-											li
-												a(href='#') Settings 2
-									|                                         
-									li
-										a.close-link
-											i.fa.fa-close
-								|                                     
-								.clearfix
-								|                                 
-								.x_content
-									canvas#canvas_bar
+									|      
 
 					//- script.
 					//- 	var barChartData = {

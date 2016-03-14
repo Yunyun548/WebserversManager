@@ -51,7 +51,7 @@ module.exports = {
 					Machine.find().paginate(
 					{
 						page: 1,
-						limit: 10
+						limit: 20
 					}).exec(callback);
 				}
 			},
@@ -64,8 +64,6 @@ module.exports = {
 				}
 				else
 				{
-					var labels = new Array("Chocolatine", "Muffins", "Croissants", "Test", "Test", "Test");
-					var intArray = new Array(27, 35, 12, 8, 22, 33);
 					return res.view(
 						'Manager/dashboard',
 						{
@@ -73,7 +71,7 @@ module.exports = {
 							totalMachines: data.machines,
 							totalContracts: data.contracts,
 							listContracts: data.contractsList,
-							listOccasions: data.machinesList
+							listMachines: data.machinesList
 						});
 				}
 			}

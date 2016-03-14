@@ -27,7 +27,8 @@ module.exports = {
             via: 'machine'
         },
         monthlyPrice: {
-            type: 'string'
+            type: 'string',
+            required: true
         },
         seller: {
             enum: ['ovh', 'soyoustart', 'kimsufi'],

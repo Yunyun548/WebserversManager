@@ -1,0 +1,88 @@
+doctype html
+html(lang='fr')
+	include ../layout_components/header.jade
+	body
+		include ../layout_components/sidebar.jade
+		div(class='right-col col-md-10')
+			.page-title
+				.title_left
+					h3 Machines
+				.title_right
+					.col-md-5.col-sm-5.col-xs-12.form-group.pull-right.top_search
+						//- .input-group
+						//- 	input.form-control(type='text', placeholder='Search for...')
+						//- 	span.input-group-btn
+						//- 		button.btn.btn-default(type='button') Go!
+			.clearfix
+			.row
+				.col-md-12.col-sm-12.col-xs-12
+					.x_panel
+						.x_title
+							h2
+								| Ajouter une machine 
+							ul.nav.navbar-right.panel_toolbox
+								li
+									a.collapse-link
+										i.fa.fa-chevron-up
+								li
+									a.close-link
+										i.fa.fa-close
+							.clearfix
+						.x_content
+							br
+							if (message === "success")
+								div.alert.alert-success.alert-dismissible.fade.in(role="alert")
+									button.close(type='button', data-dismiss='alert', aria-label='Close')
+										span(aria-hidden='true') ×
+									strong La machine a bien été ajoutée
+							else if (!message)
+							else
+								div.alert.alert-danger.alert-dismissible.fade.in(role="alert")
+									button.close(type='button', data-dismiss='alert', aria-label='Close')
+										span(aria-hidden='true') ×
+									strong Une erreur a été rencontrée : #{message}
+							form#event-form.form-horizontal.form-label-left(action='/api/machines/create', method='POST')
+								.form-group
+									label.control-label.col-md-3.col-sm-3.col-xs-12(for='name')
+										| Nom 
+										span.required *
+									.col-md-6.col-sm-6.col-xs-12
+										input.form-control.col-md-7.col-xs-12(type='text', name='name', required='required')
+								.form-group
+									label.control-label.col-md-3.col-sm-3.col-xs-12(for='ip')
+										| IP 
+										span.required *
+									.col-md-6.col-sm-6.col-xs-12
+										input.form-control.col-md-7.col-xs-12(type='text', name='ip', required='required')
+								.form-group
+									label.control-label.col-md-3.col-sm-3.col-xs-12(for='dns')
+										| DNS 
+										span.required *
+									.col-md-6.col-sm-6.col-xs-12
+										input.form-control.col-md-7.col-xs-12(type='text', name='dns', required='required')
+								.form-group
+									label.control-label.col-md-3.col-sm-3.col-xs-12(for='monthlyPrice')
+										| Prix mensuel 
+										span.required *
+									.col-md-6.col-sm-6.col-xs-12
+										input.form-control.col-md-7.col-xs-12(type='text', name='monthlyPrice', required='required')
+								.form-group
+									label.control-label.col-md-3.col-sm-3.col-xs-12(for='seller')
+										| Hébergeur 
+										span.required *                 
+									.col-md-6.col-sm-6.col-xs-12
+										select.form-control(name='seller', required='required')
+											option Choisir
+											|                                                     
+											option ovh
+											|                                                     
+											option soyoustart
+											|                                                     
+											option kimsufi
+								.ln_solid
+								.form-group
+									.col-md-6.col-sm-6.col-xs-12.col-md-offset-3
+										button.btn.btn-primary(type='submit') Annuler
+										button.btn.btn-success(type='submit') Envoyer
+
+	include ../layout_components/footer.jade

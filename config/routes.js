@@ -35,12 +35,28 @@ module.exports.routes = {
 	/**
 	 * Routes application
 	 **/
-	'GET /':                       'GeneralController.login',
-    'GET /login':                  'GeneralController.login',
-    'GET /register':               'GeneralController.register',
-	'GET /success':                'GeneralController.success',
-	'GET /error':                  'GeneralController.error',
-    'GET /dashboard':              'GeneralController.dashboard',
+	'GET /':                       		'GeneralController.login',
+    'GET /login':                  		'GeneralController.login',
+    'GET /register':               		'GeneralController.register',
+	'GET /success':                		'GeneralController.success',
+	'GET /error':                  		'GeneralController.error',
+    'GET /dashboard':              		'GeneralController.dashboard',
+
+	/**
+	 * CRUD Contracts
+	 **/
+	'POST /api/contract/create':   		'ContractController.add',
+	'GET /dashboard/contracts/create':  'ContractController.create',
+	'GET /dashboard/contracts/view':   	'ContractController.view',
+	'GET /dashboard/contracts/list':   	'ContractController.list',
+
+	/**
+	 * CRUD Machines
+	 **/
+	'POST /api/machines/create':   		'MachineController.add',
+	'GET /dashboard/machines/create':  	'MachineController.create',
+	'GET /dashboard/machines/view':   	'MachineController.view',
+	'GET /dashboard/machines/list':   	'MachineController.list'
 
 	/***************************************************************************
 	 *                                                                          *
