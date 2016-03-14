@@ -38,30 +38,29 @@ html(lang='fr')
 									tr.headings
 										th
 											input#check-all.flat(type='checkbox')
-										th.column-title Id 
 										th.column-title Nom
-										th.column-title Organisateur 
-										th.column-title Début 
-										th.column-title Fin 
-										th.column-title.col-md-4 Description
+										th.column-title Prix Mensuel 
+										th.column-title Machine 
+										th.column-title Date Début 
+										th.column-title Date Fin
 										th.column-title.no-link.last
 											span.nobr Action
 								tbody
-									each event in events
+									each contract in contracts
 										tr.even.pointer
 											td.a-center
-												| input.flat(type='checkbox', name='table_records')
-											td.  #{event.id}
+												<!-- | input.flat(type='checkbox', name='table_records') -->
 											td. 
-												| #{event.name}
+												#{contract.name}
 											td. 
-												| #{event.owner.auth.email}
+												#{contract.monthlyPrice} €
+											td.
+												#{contract.machine}
 											td. 
-												| #{event.formatedDateStart}
+												#{moment(contract.dateStart).format("DD-MM-YYYY")}
 											td. 
-												| #{event.formatedDateEnd}
-											td. 
-												| #{event.description}
+												#{moment(contract.dateEnd).format("DD-MM-YYYY")}
 											td.last
-												a(href='#') View
+												<a href="/dashboard/contracts/view?id=#{contract.id}">Voir | </a>
+												<a href="/dashboard/contracts/edit?id=#{contract.id}">Editer</a>
 	include ../layout_components/footer.jade

@@ -41,8 +41,7 @@ html(lang='fr')
 									button.close(type='button', data-dismiss='alert', aria-label='Close')
 										span(aria-hidden='true') ×
 									strong Une erreur a été rencontrée : #{message}
-							//- Exemple : http://localhost:1337/api/occasion/create?name="TestEvent"&location="TestLocation"&description="Lorem ipsum es spitus Sanctum no cashmere gauffres  crèpes no cashmere gauffres  crèpesno cashmere gauffres crèpesno cashmere gauffrescrèpes"&dateStart="10:50:00 26/12/2015"&dateEnd="11:50:00 26/12/2015"
-							form#event-form.form-horizontal.form-label-left(action='/api/occasion/create', method='POST')
+							form#event-form.form-horizontal.form-label-left(action='/api/contract/create', method='POST')
 								.form-group
 									label.control-label.col-md-3.col-sm-3.col-xs-12(for='name')
 										| Nom 
@@ -50,15 +49,11 @@ html(lang='fr')
 									.col-md-6.col-sm-6.col-xs-12
 										input.form-control.col-md-7.col-xs-12(type='text', name='name', required='required')
 								.form-group
-									label.control-label.col-md-3.col-sm-3.col-xs-12(for='location')
-										| Lieu 
+									label.control-label.col-md-3.col-sm-3.col-xs-12(for='monthlyPrice')
+										| Prix mensuel 
 										span.required *
 									.col-md-6.col-sm-6.col-xs-12
-										input.form-control.col-md-7.col-xs-12(type='text', name='location', required='required')
-								.form-group
-									label.control-label.col-md-3.col-sm-3.col-xs-12(for='description') Description
-									.col-md-6.col-sm-6.col-xs-12
-										textarea.form-control.col-md-7.col-xs-12(name='description', rows='7')
+										input.form-control.col-md-7.col-xs-12(type='number', step='any', name='monthlyPrice', required='required')
 								.form-group
 									label.control-label.col-md-3.col-sm-3.col-xs-12(for='dateStart') Date de début
 									.col-md-6.col-xs-12
@@ -73,6 +68,17 @@ html(lang='fr')
 										input#single_cal3.form-control.has-feedback-left(name='dateEnd', placeholder='Date de fin', aria-describedby='inputSuccess2Status3', type='date')
 										span.fa.fa-calendar-o.form-control-feedback.left(aria-hidden='true')
 										span#inputSuccess2Status3.sr-only (success)
+								.form-group
+									label.control-label.col-md-3.col-sm-3.col-xs-12(for='machineId')
+										| Machine 
+										span.required *                 
+									.col-md-6.col-sm-6.col-xs-12
+										select.form-control(name='machineId', required='required')
+											option Choisir
+											|                                                     
+											each machine in machines
+												option #{machine.name}
+
 								.ln_solid
 								.form-group
 									.col-md-6.col-sm-6.col-xs-12.col-md-offset-3

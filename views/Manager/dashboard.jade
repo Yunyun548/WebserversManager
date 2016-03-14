@@ -14,7 +14,6 @@ html(lang='fr')
 							|  Utilisateurs
 						|                             
 						.count.tcenter #{totalUsers}
-				|                     
 				|                             
 				.animated.flipInY.col-md-2.col-sm-4.col-xs-4.tile_stats_count
 					.left
@@ -34,7 +33,16 @@ html(lang='fr')
 							|  Contrats
 						|                             
 						.count.green.tcenter #{totalContracts}
-				|                                  
+				|      
+				.animated.flipInY.col-md-2.col-sm-4.col-xs-4.tile_stats_count
+					.left
+					.right
+						a.btn.btn-primary.col-xs-12(href='/dashboard/contracts/create')
+							.fa.fa-plus-circle.mr10
+							| Contrat
+						a.btn.btn-success.col-xs-12(href='/dashboard/machines/create')
+							.fa.fa-plus-circle.mr10
+							| Machine
 				.row.col-md-12                              
 					.col-md-6.col-xs-12
 						.x_panel
@@ -93,22 +101,22 @@ html(lang='fr')
 								table(style='width:100%')
 									thead
 										tr.headings
-											th.column-title.col-xs-2.ph0 Id 
-											th.column-title.col-xs-4.ph0 Nom
-											th.column-title.col-xs-3.ph0 Début 
+											th.column-title.col-xs-2.ph0 Nom 
+											th.column-title.col-xs-4.ph0 Prix mensuel
 											th.column-title.col-xs-3.ph0 Fin
+											th.column-title.col-xs-3.ph0 Action
 										tr.even(style='height: 10px;')
 									tbody
 										each contract in listContracts
 											tr.even.pointer
 												td. 
-													#{contract.id}
-												td. 
 													#{contract.name}
-												td.
-													#{contract.formatedDateStart}
 												td. 
-													#{contract.formatedDateEnd}
+													#{contract.monthlyPrice} €
+												td. 
+													#{moment(contract.dateEnd).format("DD-MM-YYYY")}
+												td. 
+													<a href="/dashboard/contracts/view?id=#{contract.id}">Voir</a>
 									|      
 
 					//- script.

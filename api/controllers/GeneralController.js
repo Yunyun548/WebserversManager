@@ -1,4 +1,5 @@
 var async = require("async");
+var moment = require("moment");
 
 module.exports = {
 
@@ -71,7 +72,8 @@ module.exports = {
 							totalMachines: data.machines,
 							totalContracts: data.contracts,
 							listContracts: data.contractsList,
-							listMachines: data.machinesList
+							listMachines: data.machinesList,
+							moment: moment
 						});
 				}
 			}
