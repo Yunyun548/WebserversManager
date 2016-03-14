@@ -30,9 +30,6 @@ module.exports.policies = {
 	ContractController:
 	{
 		'*': ['sessionAuth'],
-		'login': true,
-		'register': true,
-		'successRegister' : true,
 	},
     MachineController:
 	{
