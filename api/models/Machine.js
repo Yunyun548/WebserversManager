@@ -33,6 +33,9 @@ module.exports = {
         seller: {
             enum: ['ovh', 'soyoustart', 'kimsufi'],
             required: true
+        },
+        serviceName: {
+            type: 'string'
         }
     }
 };

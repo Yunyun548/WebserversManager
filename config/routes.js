@@ -56,7 +56,12 @@ module.exports.routes = {
 	'POST /api/machines/create':   		'MachineController.add',
 	'GET /dashboard/machines/create':  	'MachineController.create',
 	'GET /dashboard/machines/view':   	'MachineController.view',
-	'GET /dashboard/machines/list':   	'MachineController.list'
+	'GET /dashboard/machines/list':   	'MachineController.list',
+
+	/**
+	 * API
+	 **/
+	'GET /api/machines/get-load': 		'MachineController.getLoad'
 
 	/***************************************************************************
 	 *                                                                          *

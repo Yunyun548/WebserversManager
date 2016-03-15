@@ -1,0 +1,20 @@
+{
+	"kimsufi": {
+		"consumer": "",
+		"application": "",
+        "secret": "",
+		"endpoint": "kimsufi-eu"
+	},
+    "ovh": {
+		"consumer": "",
+		"application": "",
+        "secret": "",
+		"endpoint": "ovh-eu"
+	},
+    "soyoustart": {
+		"consumer": "",
+		"application": "",
+        "secret": "",
+		"endpoint": "soyoustart-eu"
+	}
+}

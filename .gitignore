@@ -44,3 +44,4 @@ nbproject
 ########################
 config/local.js
 config/connection.js
+config/api-parameters.json

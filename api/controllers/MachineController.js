@@ -4,6 +4,7 @@
  * @description :: Server-side logic for managing Machines
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+var config = require('../../config/api-parameters.json');
 
 module.exports = {
 
@@ -101,6 +102,53 @@ module.exports = {
 
     create: function(req, res) {
         return res.view('Manager/Machine/create');
-    }
+    },
+
+    getLoad: function(req, res) {
+        _serviceName = req.param('serviceName');
+        _seller = req.param('seller');
+        if (!_serviceName || !_seller) return res.json(501, {
+            err: "Bad parameters - Required : 'serviceName' - string + 'seller' - string"
+        })
+        else {
+
+            switch (_seller) {
+                case 'kimsufi':
+                    var endpn = 'kimsufi-eu'
+                    break;
+                case 'soyoustart':
+                    var endpn = 'soyoustart-eu'
+                    break;
+                case 'ovh':
+                    var endpn = 'ovh-eu'
+                    break;
+                default:
+                    return res.json(400, {
+                        err: "Bad Request"
+                    });
+                    break;
+            }
+
+            var ovh = require('ovh')({
+                endpoint: 'kimsufi-eu',
+                appKey: config.kimsufi.application,
+                appSecret: config.kimsufi.secret,
+                consumerKey: config.kimsufi.consumer
+            });
+
+            var path = '/dedicated/server/' + _serviceName + '/statistics/load';
+
+            ovh.request('GET', path, function(err, data) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    return res.json(200, {
+                        response: data
+                    })
+                }
+            });
+
+        }
+    },
 
 }

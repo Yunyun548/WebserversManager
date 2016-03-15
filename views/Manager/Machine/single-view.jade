@@ -28,5 +28,47 @@ html(lang='fr')
 							h4.col-md-8.ml25 #{machine.monthlyPrice} €
 							h4.col-md-3(style="text-align:right;") Hébergeur
 							h4.col-md-8.ml25 #{machine.seller}
+							h4.col-md-3(style="text-align:right;") Nom de service
+							h4.col-md-8.ml25 #{machine.serviceName}
+				.col-md-3.col-xs-6
+					.x_panel
+						.x_title
+							h2 Charge CPU - 15mn Avg
+							ul.nav.navbar-right.panel_toolbox
+								li
+									a.collapse-link
+										i.fa.fa-chevron-up
+								li
+									a.close-link
+										i.fa.fa-close
+							.clearfix
+						.x_content
+							div(style='text-align: center; margin-bottom: 17px')
+								span.chart.col-xs-4.col-xs-offset-4#cpu-chart(data-percent='86')
+								span.percent.col-xs-12.t-center#cpu-percent 0
+								canvas(height='95', width='95')
+							.pie_bg(style='text-align: center; display: none; margin-bottom: 17px')
+								canvas#canvas_doughnut1(height='130')
+				.col-md-3.col-xs-6
+					.x_panel
+						.x_title
+							h2 Charge RAM
+							ul.nav.navbar-right.panel_toolbox
+								li
+									a.collapse-link
+										i.fa.fa-chevron-up
+								li
+									a.close-link
+										i.fa.fa-close
+							.clearfix
+						.x_content
+							div(style='text-align: center; margin-bottom: 17px')
+								span.chart.col-xs-4.col-xs-offset-4#ram-chart(data-percent='86')
+								span.percent.col-xs-12.t-center#ram-percent 0
+								canvas(height='95', width='95')
+							.pie_bg(style='text-align: center; display: none; margin-bottom: 17px')
+								canvas#canvas_doughnut2(height='130')
+
 
 	include ../layout_components/footer.jade
+	script(type='text/javascript', src='/js/serverLoad.js', id='serverLoad', data-service-name='#{machine.serviceName}', data-seller='#{machine.seller}')
