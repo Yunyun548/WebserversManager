@@ -6,7 +6,7 @@ Server Manager est une application crée à l'aide du framework MVC SailsJs perm
   - Consulter la cahrge d'utilisation des serveurs en gestion
 
 ## Version
-0.0.1
+0.0.2
 
 ## Tech
 
