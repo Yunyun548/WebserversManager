@@ -86,7 +86,6 @@ module.exports = {
                 err: 'No events found for this user'
             });
             else {
-                console.log(results)
                 return res.view('Manager/Contract/view', {
                     contracts: results,
                     moment: moment

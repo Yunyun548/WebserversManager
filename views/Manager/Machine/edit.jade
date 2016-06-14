@@ -1,0 +1,50 @@
+doctype html
+html(lang='fr')
+	include ../layout_components/header.jade
+	body
+		include ../layout_components/sidebar.jade
+		div(class='right-col col-md-10', style={background: '#f7f7f7'})
+			.page-title
+				.title_left
+					h3 Serveur #{machine.name}
+			.clearfix
+			.row
+				.col-md-12.col-sm-12.col-xs-12
+					.x_panel
+						.x_content
+							br
+							if (message === "success")
+								div.alert.alert-success.alert-dismissible.fade.in(role="alert")
+									button.close(type='button', data-dismiss='alert', aria-label='Close')
+										span(aria-hidden='true') ×
+									strong Le serveur a bien été modifié
+							else if (!message)
+							else
+								div.alert.alert-danger.alert-dismissible.fade.in(role="alert")
+									button.close(type='button', data-dismiss='alert', aria-label='Close')
+										span(aria-hidden='true') ×
+									strong Une erreur a été rencontrée : #{message}
+							form(action='/api/machines/update', method='POST')
+								div.form-group.mt10.col-xs-12.ph0
+									label.col-md-3.mt5(style="text-align:right;", for='name') Nom
+									input.form-control(id='name', type='text', value='#{machine.name}', name='name', style="width: 66.66666667%;")
+								div.form-group.mt10.col-xs-12.ph0
+									label.col-md-3.mt5(style="text-align:right;", for='name') IP
+									input.form-control(id='ip', type='text', value='#{machine.ip}', name='ip', style="width: 66.66666667%;")
+								div.form-group.mt10.col-xs-12.ph0
+									label.col-md-3.mt5(style="text-align:right;", for='name') DNS
+									input.form-control(id='dns', type='text', value='#{machine.dns}', name='dns', style="width: 66.66666667%;")
+								div.form-group.mt10.col-xs-12.ph0
+									label.col-md-3.mt5(style="text-align:right;", for='name') Prix Mensuel
+									input.form-control(id='monthlyPrice', type='text', value='#{machine.monthlyPrice}', name='monthlyPrice', style="width: 66.66666667%;")
+								div.form-group.mt10.col-xs-12.ph0
+									label.col-md-3.mt5(style="text-align:right;", for='name') Hébergeur
+									input.form-control(id='seller', type='text', value='#{machine.seller}', name='seller', style="width: 66.66666667%;")
+								div.form-group.mt10.col-xs-12.ph0
+									label.col-md-3.mt5(style="text-align:right;", for='name') Nom de service
+									input.form-control(id='serviceName', type='text', value='#{machine.serviceName}', name='serviceName', style="width: 66.66666667%;")
+								div.form-group.tright.col-xs-11.ph0.mt10
+									input.hidden(id='id', type='text', value='#{machine.id}', name='id')
+									input.btn.btn-primary(type='submit',value='Modifier',data-transition='fade', data-theme='c')
+
+	include ../layout_components/footer.jade

@@ -18,7 +18,7 @@ module.exports = {
      * @param            :: {string} dns
      * @param            :: {float} monthlyPrice
      * @param            :: {string} seller
-     * @return           :: {Json} Status code ||{Json} Status code + {Contract} Model Contract
+     * @return           :: {Json} Status code ||{Json} Status code + {Machine} Model Machine
      */
     add: function(req, res) {
         var _name = req.param('name');
@@ -29,7 +29,6 @@ module.exports = {
         if (!_name || !_ip || !_dns || !_monthlyPrice || !_seller) return res.json(501, {
             err: "Bad parameters - Required : 'name' - string, 'ip' - string, 'monthlyPrice' - float, 'dns' - string, 'seller' - string"
         })
-        console.log(req.session.user)
         Machine.create({
             name: _name,
             ip: _ip,
@@ -96,8 +95,69 @@ module.exports = {
         });
     },
 
-    edit: function(req, res) {
+    getForm: function(req, res) {
+        var _id = req.param('id');
+        if (!_id) return res.json(501, {
+            err: "Bad parameters - Required : 'id' - string"
+        })
+        Machine.findOne({
+            id: _id
+        }).exec(function(err, result) {
+            if (err) {
+                console.log('/!\ Error : ' + err);
+            }
+            if (!result) return res.json(404, {
+                err: err
+            });
+            else {
+                return res.view('Manager/Machine/edit', {
+                    machine: result
+                });
+            }
+        });
+    },
 
+
+    /**
+     * CreateOne
+     * @description      :: Update a machine
+     * @route            :: /api/machines/update
+     * @methode          :: POST
+     * @param            :: {string} id
+     * @param            :: {string} name
+     * @param            :: {strinf} ip
+     * @param            :: {string} dns
+     * @param            :: {float} monthlyPrice
+     * @param            :: {string} seller
+     * @return           :: {Json} Status code ||{Json} Status code + {Machine} Model Machine
+     */
+    update: function(req, res) {
+        var _id = req.param('id');
+        var _name = req.param('name');
+        var _ip = req.param('ip');
+        var _dns = req.param('dns');
+        var _monthlyPrice = req.param('monthlyPrice');
+        var _seller = req.param('seller');
+        if (!_id || !_name || !_ip || !_dns || !_monthlyPrice || !_seller) return res.json(501, {
+            err: "Bad parameters - Required : 'id' - string, 'name' - string, 'ip' - string, 'monthlyPrice' - float, 'dns' - string, 'seller' - string"
+        })
+        Machine.update(_id, {
+            name: _name,
+            ip: _ip,
+            dns: _dns,
+            monthlyPrice: _monthlyPrice,
+            seller: _seller,
+        }).exec(function afterwards(err, result) {
+            if (err) {
+                console.log('/!\ Error : ' + err);
+                return;
+            }
+
+            return res.view('Manager/Machine/edit', {
+                machine: result,
+                message : "success"
+            });
+        });
     },
 
     create: function(req, res) {
@@ -140,7 +200,7 @@ module.exports = {
 
 
             var ovh = require('ovh')({
-                endpoint: 'endpn',
+                endpoint: endpn,
                 appKey: appKey,
                 appSecret: appSecret,
                 consumerKey: consumerKey
@@ -150,7 +210,7 @@ module.exports = {
 
             ovh.request('GET', path, function(err, data) {
                 if (err) {
-                    console.log(err);
+                    console.log('/!\ Error : ' + err);
                 } else {
                     return res.json(200, {
                         response: data

@@ -54,9 +54,11 @@ module.exports.routes = {
 	 * CRUD Machines
 	 **/
 	'POST /api/machines/create':   		'MachineController.add',
+	'POST /api/machines/update':   		'MachineController.update',
 	'GET /dashboard/machines/create':  	'MachineController.create',
 	'GET /dashboard/machines/view':   	'MachineController.view',
 	'GET /dashboard/machines/list':   	'MachineController.list',
+	'GET /dashboard/machines/edit':   	'MachineController.getForm',
 
 	/**
 	 * API
