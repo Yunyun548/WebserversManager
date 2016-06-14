@@ -115,21 +115,21 @@ module.exports = {
             switch (_seller) {
                 case 'kimsufi':
                     var endpn = 'kimsufi-eu'
-                    var appKey: config.kimsufi.application,
-                    var appSecret: config.kimsufi.secret,
-                    var consumerKey: config.kimsufi.consumer
+                    var appKey = config.kimsufi.application
+                    var appSecret = config.kimsufi.secret
+                    var consumerKey = config.kimsufi.consumer
                     break;
                 case 'soyoustart':
                     var endpn = 'soyoustart-eu'
-                    var appKey: config.soyoustart.application,
-                    var appSecret: config.soyoustart.secret,
-                    var consumerKey: config.soyoustart.consumer
+                    var appKey = config.soyoustart.application
+                    var appSecret = config.soyoustart.secret
+                    var consumerKey = config.soyoustart.consumer
                     break;
                 case 'ovh':
                     var endpn = 'ovh-eu'
-                    var appKey: config.ovh.application,
-                    var appSecret: config.ovh.secret,
-                    var consumerKey: config.ovh.consumer
+                    var appKey = config.ovh.application
+                    var appSecret = config.ovh.secret
+                    var consumerKey = config.ovh.consumer
                     break;
                 default:
                     return res.json(400, {
@@ -137,6 +137,7 @@ module.exports = {
                     });
                     break;
             }
+
 
             var ovh = require('ovh')({
                 endpoint: 'endpn',
